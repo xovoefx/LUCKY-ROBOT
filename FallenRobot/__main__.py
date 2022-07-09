@@ -87,7 +87,7 @@ buttons = [
         ),
     ],
     [
-        InlineKeyboardButton(text="✰ ᴍᴀɪɴᴛᴀɪɴᴇʀ", url=f"https://t.me/cute_boy701"),
+        InlineKeyboardButton(text="✰ ᴍᴜꜱɪᴄ ᴄᴍᴅꜱ", callback_data=f"settings_back_helper"),
         InlineKeyboardButton(text="sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ✰", callback_data="source_"),
     ],
     [
