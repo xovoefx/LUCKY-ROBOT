@@ -76,7 +76,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-ʜᴇʏ,[{event.sender.first_name}] [!](https://telegra.ph/file/9d57db2605497faa27903.jpg)\n\n
+ʜᴇʏ, [!](https://telegra.ph/file/9d57db2605497faa27903.jpg)\n\n
 ᴍʏ ɴᴀᴍᴇ ɪs ʟᴜᴄᴋʏ ʀᴏʙᴏᴛ ✨,\n───────────────\n✦ ᴀ ᴘᴏᴡᴇʀғᴜʟʟ ғᴜʟʟ ғʟᴇᴅɢᴇ\nᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʀᴏʙᴏᴛ ᴡɪᴛʜ ᴏsᴍ\nsᴇᴄᴜʀɪᴛʏ ᴀɴᴅ ᴍᴏᴅᴜʟᴇs!!\n───────────────\nʜɪᴛ ᴏɴ /help ᴀɴᴅ ᴇxᴘʟᴏʀᴇʀ ʏᴏᴜʀsᴇʟғ.​
 """
 
