@@ -77,7 +77,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 ʜᴇʏʏ, ᴛʜɪs ɪs {}* [!](https://telegra.ph/file/efa752ce8441ea8cb3d33.jpg)\n\n*
-ᴍʏ ɴᴀᴍᴇ ɪs ʟᴜᴄᴋʏ ʀᴏʙᴏᴛ ✨,\n───────────────\n✦ ᴀ ᴘᴏᴡᴇʀғᴜʟʟ ғᴜʟʟ ғʟᴇᴅɢᴇ\nᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʀᴏʙᴏᴛ ᴡɪᴛʜ ᴏsᴍ\nsᴇᴄᴜʀɪᴛʏ ᴀɴᴅ ᴍᴏᴅᴜʟᴇs!!\n───────────────\nʜɪᴛ ᴏɴ /help ᴀɴᴅ ᴇxᴘʟᴏʀᴇʀ ʏᴏᴜʀsᴇʟғ.*​ /help
+ᴍʏ ɴᴀᴍᴇ ɪs ʟᴜᴄᴋʏ ʀᴏʙᴏᴛ ✨,\n───────────────\n✦ ᴀ ᴘᴏᴡᴇʀғᴜʟʟ ғᴜʟʟ ғʟᴇᴅɢᴇ\nᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʀᴏʙᴏᴛ ᴡɪᴛʜ ᴏsᴍ\nsᴇᴄᴜʀɪᴛʏ ᴀɴᴅ ᴍᴏᴅᴜʟᴇs!!\n───────────────\nʜɪᴛ ᴏɴ /help ᴀɴᴅ ᴇxᴘʟᴏʀᴇʀ ʏᴏᴜʀsᴇʟғ.​
 """
 
 buttons = [
@@ -96,7 +96,11 @@ buttons = [
     ],
 ]
 
-FallenRobot_IMG = "https://telegra.ph/file/efa752ce8441ea8cb3d33.jpg"
+FallenRobot_IMG = [
+              "https://telegra.ph/file/b70eaaac6d46a04469cc3.jpg",
+              "https://telegra.ph/file/036139c8f3e30112586bb.jpg",
+              "https://telegra.ph/file/9d57db2605497faa27903.jpg",
+]
 
 HELP_STRINGS = f"""
 ✰ʟᴜᴄᴋʏ ✘ ʀᴏʙᴏᴛ *ᴇxᴄʟᴜsɪᴠᴇ ꜰᴇᴀᴛᴜʀᴇs*\n*✰ ᴄʜᴇᴄᴋᴏᴜᴛ ᴀʟʟ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅs*\n*✰ ᴀʟʟ ᴏꜰ ᴍʏ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ / ᴏʀ !*\n*✰ ɪꜰ ʏᴏᴜ ɢᴏᴛ ᴀɴʏ ɪssᴜᴇ ᴏʀ ʙᴜɢ ɪɴ ᴀɴʏ ᴄᴏᴍᴍᴀɴᴅ ᴘʟᴇᴀsᴇ ʀᴇᴘᴏʀᴛ ɪᴛ ᴛᴏ @{SUPPORT_CHAT}.*"""
