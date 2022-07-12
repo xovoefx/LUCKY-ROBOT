@@ -76,8 +76,8 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-*✰ ʜᴇʏʏ, ᴛʜɪs ɪs {}* [!](https://telegra.ph/file/efa752ce8441ea8cb3d33.jpg)\n\n*
-ᴍʏ ɴᴀᴍᴇ ɪs ᴅᴇᴠᴜ ʀᴏʙᴏᴛ ✨,\n───────────────\n✦ ᴀ ᴘᴏᴡᴇʀғᴜʟʟ ғᴜʟʟ ғʟᴇᴅɢᴇ\nᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʀᴏʙᴏᴛ ᴡɪᴛʜ ᴏsᴍ\nsᴇᴄᴜʀɪᴛʏ ᴀɴᴅ ᴍᴏᴅᴜʟᴇs!!\n───────────────\nʜɪᴛ ᴏɴ /help ᴀɴᴅ ᴇxᴘʟᴏʀᴇʀ ʏᴏᴜʀsᴇʟғ.*​ /help
+ʜᴇʏʏ, ᴛʜɪs ɪs {}* [!](https://telegra.ph/file/efa752ce8441ea8cb3d33.jpg)\n\n*
+ᴍʏ ɴᴀᴍᴇ ɪs ʟᴜᴄᴋʏ ʀᴏʙᴏᴛ ✨,\n───────────────\n✦ ᴀ ᴘᴏᴡᴇʀғᴜʟʟ ғᴜʟʟ ғʟᴇᴅɢᴇ\nᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʀᴏʙᴏᴛ ᴡɪᴛʜ ᴏsᴍ\nsᴇᴄᴜʀɪᴛʏ ᴀɴᴅ ᴍᴏᴅᴜʟᴇs!!\n───────────────\nʜɪᴛ ᴏɴ /help ᴀɴᴅ ᴇxᴘʟᴏʀᴇʀ ʏᴏᴜʀsᴇʟғ.*​ /help
 """
 
 buttons = [
@@ -92,7 +92,7 @@ buttons = [
         InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="source_"),
     ],
     [
-        InlineKeyboardButton(text="⬇⬇ ꜱᴇᴇ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ ⬇⬇", callback_data="help_back"),
+        InlineKeyboardButton(text="⇩ ꜱᴇᴇ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ ⇩", callback_data="help_back"),
     ],
 ]
 
