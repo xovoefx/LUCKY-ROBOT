@@ -103,7 +103,7 @@ FallenRobot_IMG = [
 ]
 
 HELP_STRINGS = f"""
-✿ Hᴇʏ, ʟᴜᴜᴄᴋʏ-ʀᴏʙᴏᴛ 🇮🇳 ɪs ʜᴇʀᴇ!\n✦ ɪ ᴜsᴇ ᴍʏ ᴘᴏᴡᴇʀs ᴛᴏ ʜᴇʟᴘ ᴀᴅᴍɪɴs ᴛᴏ\nᴍᴀɴᴀɢᴇ ᴛʜᴇɪʀ ɢʀᴏᴜᴘs!\n✦ ᴍᴀɪɴ ᴄᴏᴍᴍᴀɴᴅs ᴀᴠᴀɪʟᴀʙʟᴇ :\n✦ /start  : ᴘᴍ's ʏᴏᴜ ᴛʜɪs ᴍᴇssᴀɢᴇ\nғᴏʀ ғᴜɴ😂.\n✦ /help :  ɪɴꜰᴏ ᴀʙᴏᴜᴛ  ᴍᴏᴅᴜʟᴇ.\n✦ /settings  : ᴛʀʏ ɪɴ ɢʀᴏᴜᴘ ғᴏʀ ᴍᴏʀᴇ\nʙᴇᴛᴛᴇʀ ᴇxᴘᴇʀɪᴇɴᴄᴇs🥲.\n✦ Pᴏᴡᴇʀᴇᴅ Bʏ [ʟᴜᴄᴋʏ ᴡᴏʀʟᴅ](https://t.me/terayaarhoomai)"""
+✿ Hᴇʏ, ʟᴜᴜᴄᴋʏ-ʀᴏʙᴏᴛ 🇮🇳 ɪs ʜᴇʀᴇ!\n✦ ɪ ᴜsᴇ ᴍʏ ᴘᴏᴡᴇʀs ᴛᴏ ʜᴇʟᴘ ᴀᴅᴍɪɴs ᴛᴏ\nᴍᴀɴᴀɢᴇ ᴛʜᴇɪʀ ɢʀᴏᴜᴘs!\n✦ ᴍᴀɪɴ ᴄᴏᴍᴍᴀɴᴅs ᴀᴠᴀɪʟᴀʙʟᴇ :\n✦ /start  : ᴘᴍ's ʏᴏᴜ ᴛʜɪs ᴍᴇssᴀɢᴇ\nғᴏʀ ғᴜɴ😂.\n✦ /help :  ɪɴꜰᴏ ᴀʙᴏᴜᴛ  ᴍᴏᴅᴜʟᴇ.\n✦ /settings  : ᴛʀʏ ɪɴ ɢʀᴏᴜᴘ ғᴏʀ ᴍᴏʀᴇ\nʙᴇᴛᴛᴇʀ ᴇxᴘᴇʀɪᴇɴᴄᴇs🥲."""
 
 DONATE_STRING = """[ᴍᴀʜ ᴏᴡɴᴇʀ](https://t.me/cute_boy701)"""
 
@@ -351,7 +351,7 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
     query = update.callback_query
     if query.data == "fallen_":
         query.message.edit_text(
-            text=f"*ʜᴇʏ,*🥀\n  *ᴛʜɪs ɪs {dispatcher.bot.first_name}*"
+            text=f"ʜᴇʏ,\n\nᴄʟɪᴄᴋ ᴏɴ ʙᴜᴛᴛᴏɴ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ\nᴇxᴘʟᴏʀᴇʀ 🌺!\n\n────────────────\n❀ ᴏᴡɴᴇʀ - [ʟ ᴜ ᴄ ᴋ ʏ](https://t.me/cute_boy701"
             "\n*ᴀ ᴘᴏᴡᴇʀꜰᴜʟ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ʙᴜɪʟᴛ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴇᴀꜱɪʟʏ ᴀɴᴅ ᴛᴏ ᴘʀᴏᴛᴇᴄᴛ ʏᴏᴜʀ ɢʀᴏᴜᴘ ꜰʀᴏᴍ ꜱᴄᴀᴍᴍᴇʀꜱ ᴀɴᴅ ꜱᴘᴀᴍᴍᴇʀꜱ.*"
             "\n*ᴡʀɪᴛᴛᴇɴ ɪɴ ᴩʏᴛʜᴏɴ ᴡɪᴛʜ sǫʟᴀʟᴄʜᴇᴍʏ ᴀɴᴅ ᴍᴏɴɢᴏᴅʙ ᴀs ᴅᴀᴛᴀʙᴀsᴇ.*"
             "\n\n➲  ɪ ᴄᴀɴ ʀᴇꜱᴛʀɪᴄᴛ ᴜꜱᴇʀꜱ."
