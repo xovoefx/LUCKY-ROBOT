@@ -76,22 +76,23 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-*✰ ʜᴇʏ, ᴛʜɪs ɪs {}* [!](https://telegra.ph/file/efa752ce8441ea8cb3d33.jpg)\n\n*✰ ɪ ᴀᴍ ᴛʜᴇ ᴍᴏsᴛ ᴘᴏᴡᴇʀꜰᴜʟ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴏꜰ ᴛᴇʟᴇɢʀᴀᴍ.\n✰ ɪ ʜᴀᴠᴇ ᴀᴡᴇsᴏᴍᴇ ꜰᴇᴀᴛᴜʀᴇs ᴀɴᴅ ɴᴏ ᴏɴᴇ ᴄᴀɴ ʙᴇᴀᴛ ᴍᴇ ꜰᴏʀ ɢᴇᴛᴛɪɴɢ \n✰ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴍʏ ᴄᴏᴍᴍᴀɴᴅs ᴄʟɪᴄᴋ ᴏɴ ᴄᴏᴍᴍᴀɴᴅs ʙᴜᴛᴛᴏɴ ᴏʀ ʜɪᴛ*​ /help
+*✰ ʜᴇʏʏ, ᴛʜɪs ɪs {}* [!](https://telegra.ph/file/efa752ce8441ea8cb3d33.jpg)\n\n*
+ᴍʏ ɴᴀᴍᴇ ɪs ᴅᴇᴠᴜ ʀᴏʙᴏᴛ ✨,\n───────────────\n✦ ᴀ ᴘᴏᴡᴇʀғᴜʟʟ ғᴜʟʟ ғʟᴇᴅɢᴇ\nᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʀᴏʙᴏᴛ ᴡɪᴛʜ ᴏsᴍ\nsᴇᴄᴜʀɪᴛʏ ᴀɴᴅ ᴍᴏᴅᴜʟᴇs!!\n───────────────\nʜɪᴛ ᴏɴ /help ᴀɴᴅ ᴇxᴘʟᴏʀᴇʀ ʏᴏᴜʀsᴇʟғ.*​ /help
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="✰  ᴋɪᴅɴᴀᴘ ᴍᴇ ʙᴀʙᴜ  ✰",
+            text="••ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜ ɢʀᴏᴜᴘ••",
             url=f"https://t.me/{dispatcher.bot.username}?startgroup=true",
         ),
     ],
     [
-        InlineKeyboardButton(text="✰ ᴍᴜꜱɪᴄ ᴄᴍᴅꜱ", callback_data=f"settings_back_helper"),
-        InlineKeyboardButton(text="sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ✰", callback_data="source_"),
+        InlineKeyboardButton(text="ᴍᴜꜱɪᴄ", callback_data=f"settings_back_helper"),
+        InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="source_"),
     ],
     [
-        InlineKeyboardButton(text="✰ ʜᴇʟᴘ ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅꜱ ✰", callback_data="help_back"),
+        InlineKeyboardButton(text="⬇⬇ ꜱᴇᴇ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ ⬇⬇", callback_data="help_back"),
     ],
 ]
 
