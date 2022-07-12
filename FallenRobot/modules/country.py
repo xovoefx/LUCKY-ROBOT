@@ -101,7 +101,7 @@ Time Zones:- {tom}
 Top Level Domain:- {lanester}
 wikipedia:- {wiki}</b>
 
-Gathered By [FALLEN](t.me/anonymous_was_bot)</b>
+Gathered By [L U C K Y](t.me/cute_boy701)</b>
 """
 
     await borg.send_message(
@@ -117,4 +117,4 @@ I will give information about a country
  ❍ /country <country name>*:* Gathering info about given country
 """
 
-__mod_name__ = "Cᴏᴜɴᴛʀʏ"
+__mod_name__ = "Cᴏᴜɴᴛʀʏ 🇮🇳"
