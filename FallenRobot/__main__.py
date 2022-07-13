@@ -81,6 +81,11 @@ uptime = get_readable_time((time.time() - StartTime))
 PM_START_TEXT = """
 ʜᴇʏ, [!](https://telegra.ph/file/9d57db2605497faa27903.jpg)\n\n
 ᴍʏ ɴᴀᴍᴇ ɪs ʟᴜᴄᴋʏ ʀᴏʙᴏᴛ ✨,\n───────────────\n✦ ᴀ ᴘᴏᴡᴇʀғᴜʟʟ ғᴜʟʟ ғʟᴇᴅɢᴇ\nᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʀᴏʙᴏᴛ ᴡɪᴛʜ ᴏsᴍ\nsᴇᴄᴜʀɪᴛʏ ᴀɴᴅ ᴍᴏᴅᴜʟᴇs!!\n───────────────\nʜɪᴛ ᴏɴ /help ᴀɴᴅ ᴇxᴘʟᴏʀᴇʀ ʏᴏᴜʀsᴇʟғ.
+─────────────
+ ➻ ᴜᴘᴛɪᴍᴇ: {}
+ ➻ ᴜsᴇʀs: {}
+ ➻ chats: {}
+─────────────
 """
 
 buttons = [
@@ -209,9 +214,15 @@ def start(update: Update, context: CallbackContext):
             elif args[0][1:].isdigit() and "rules" in IMPORTED:
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
-        else:
+        else:    
+            first_name = update.effective_user.first_name
             update.effective_message.reply_text(
-                PM_START_TEXT.format(dispatcher.bot.first_name),
+                PM_START_TEXT.format(
+                    escape_markdown(first_name),
+                    START_IMG,
+                    escape_markdown(uptime),
+                    sql.num_users(),
+                    sql.num_chats()),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
