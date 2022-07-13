@@ -17,7 +17,6 @@ from FallenRobot import (
     URL,
     WEBHOOK,
     SUPPORT_CHAT,
-    dispatcher,
     StartTime,
     START_IMG,
     telethn,
