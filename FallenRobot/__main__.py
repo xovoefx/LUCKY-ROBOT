@@ -79,7 +79,7 @@ uptime = get_readable_time((time.time() - StartTime))
 
 
 PM_START_TEXT = """
-ʜᴇʏw [!](https://telegra.ph/file/9d57db2605497faa27903.jpg) {}\n
+ʜᴇʏ [!](https://telegra.ph/file/9d57db2605497faa27903.jpg) {}\n
 ᴍʏ ɴᴀᴍᴇ ɪs ʟᴜᴄᴋʏ ʀᴏʙᴏᴛ ,{} ✨,\n✦ ᴀ ᴘᴏᴡᴇʀғᴜʟʟ ғᴜʟʟ ғʟᴇᴅɢᴇ\nᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʀᴏʙᴏᴛ ᴡɪᴛʜ ᴏsᴍ\nsᴇᴄᴜʀɪᴛʏ ᴀɴᴅ ᴍᴏᴅᴜʟᴇs!!\nʜɪᴛ ᴏɴ /help ᴀɴᴅ ᴇxᴘʟᴏʀᴇʀ ʏᴏᴜʀsᴇʟғ.\n
 ─────────────────────
     ➻ ᴜᴘᴛɪᴍᴇ: {}
