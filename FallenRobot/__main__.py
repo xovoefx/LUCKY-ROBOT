@@ -220,8 +220,7 @@ def start(update: Update, context: CallbackContext):
                 PM_START_TEXT.format(
                     escape_markdown(first_name),
 #                    START_IMG,
-                    escape_markdown(uptime),
-                    sql.num_users(),
+                    escape_markdown(get_readable_time((time.time() - StartTime))),                  sql.num_users(),
                     sql.num_chats()),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
