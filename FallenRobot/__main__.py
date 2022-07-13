@@ -219,7 +219,7 @@ def start(update: Update, context: CallbackContext):
             update.effective_message.reply_text(
                 PM_START_TEXT.format(
                     escape_markdown(first_name),
-#                    START_IMG,
+                    START_IMG,
                     escape_markdown(get_readable_time((time.time() - StartTime))),                  sql.num_users(),
                     sql.num_chats()),
                 reply_markup=InlineKeyboardMarkup(buttons),
