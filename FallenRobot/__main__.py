@@ -749,10 +749,19 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.send_photo(
+            dispatcher.bot.sendAnimation(
                 f"@{SUPPORT_CHAT}",
-                "https://telegra.ph/file/c3d745fe632ed0a918719.jpg",
-                caption="ʟᴜᴄᴋʏ ✘ ʀᴏʙᴏᴛ ɪs ᴀʟɪᴠᴇ !\n\nᴍᴀᴅᴇ ᴡɪᴛʜ 🖤 ʙʏ ʟᴜᴄᴋʏ 🥀",
+                animation="https://telegra.ph/file/e097f5ae9491d5d4c0e3f.mp4",
+                caption=f"""
+ㅤㅤ🥀 {dispatcher.bot.first_name} ɪs ᴀʟɪᴠᴇ ʙᴀʙʏ...
+━━━━━━━━━━━━━
+ㅤ๏ **ᴘʏᴛʜᴏɴ :** `{y()}`
+ㅤ๏ **ʟɪʙʀᴀʀʏ :** `{telever}`
+ㅤ๏ **ᴛᴇʟᴇᴛʜᴏɴ :** `{tlhver}`
+ㅤ๏ **ᴩʏʀᴏɢʀᴀᴍ :** `{pyrover}`
+━━━━━━━━━━━━━
+ᴍᴀᴅᴇ ᴡɪᴛʜ 🖤 ʙʏ [ʟ ᴜ ᴄ ᴋ ʏ](https://t.me/{OWNER_USERNAME})""",
+                parse_mode=ParseMode.MARKDOWN,
             )
         except Unauthorized:
             LOGGER.warning(
