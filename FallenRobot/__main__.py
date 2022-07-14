@@ -436,17 +436,31 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
     elif query.data == "CoderX_back":
         query.message.edit_text(
             PM_START_TEXT.format(
-                    escape_markdown(first_name),
+                   escape_markdown(first_name),
                     START_IMG,
                     escape_markdown(uptime),
                     sql.num_users(),
                     sql.num_chats()),
-                reply_markup=InlineKeyboardMarkup(buttons),
-                parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
+            reply_markup=InlineKeyboardMarkup(
+    [
+        InlineKeyboardButton(
+            text="••ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜ ɢʀᴏᴜᴘ••",
+            url=f"https://t.me/{dispatcher.bot.username}?startgroup=true",
+        ),
+    ],
+    [
+        InlineKeyboardButton(text="ᴍᴜꜱɪᴄ", callback_data=f"settings_back_helper"),
+        InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="fallen_support"),
+    ],
+    [
+        InlineKeyboardButton(text="⇩ ꜱᴇᴇ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ ⇩", callback_data="help_back"),
+    ],
+]
+            ),
+            parse_mode=ParseMode.MARKDOWN,
+            timeout=60,
             disable_web_page_preview=False,
         )
-
 
 @run_async
 def Source_about_callback(update: Update, context: CallbackContext):
