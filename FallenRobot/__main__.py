@@ -456,7 +456,6 @@ buttons = [
         InlineKeyboardButton(text="⇩ ꜱᴇᴇ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ ⇩", callback_data="help_back"),
     ],
 ]
-            ),
             parse_mode=ParseMode.MARKDOWN,
             timeout=60,
             disable_web_page_preview=False,
