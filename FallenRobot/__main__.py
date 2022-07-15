@@ -441,9 +441,7 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
                     escape_markdown(uptime),
                     sql.num_users(),
                     sql.num_chats()),
-buttons = [
-    [
-        InlineKeyboardButton(
+            reply_markup=InlineKeyboardMarkup(
             text="••ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜ ɢʀᴏᴜᴘ••",
             url=f"https://t.me/{dispatcher.bot.username}?startgroup=true",
         ),
