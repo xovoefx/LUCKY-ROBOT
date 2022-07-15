@@ -445,15 +445,9 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
             text="••ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜ ɢʀᴏᴜᴘ••",
             url=f"https://t.me/{dispatcher.bot.username}?startgroup=true",
         ),
-    ],
-    [
         InlineKeyboardButton(text="ᴍᴜꜱɪᴄ", callback_data=f"settings_back_helper"),
         InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="source_"),
-    ],
-    [
         InlineKeyboardButton(text="⇩ ꜱᴇᴇ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ ⇩", callback_data="help_back"),
-    ],
-]
             parse_mode=ParseMode.MARKDOWN,
             timeout=60,
             disable_web_page_preview=False,
