@@ -441,7 +441,7 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
                     escape_markdown(uptime),
                     sql.num_users(),
                     sql.num_chats()),
-            reply_markup=InlineKeyboardMarkup(
+buttons = [
     [
         InlineKeyboardButton(
             text="••ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜ ɢʀᴏᴜᴘ••",
@@ -450,17 +450,15 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
     ],
     [
         InlineKeyboardButton(text="ᴍᴜꜱɪᴄ", callback_data=f"settings_back_helper"),
-        InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="fallen_support"),
+        InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="source_"),
     ],
     [
         InlineKeyboardButton(text="⇩ ꜱᴇᴇ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ ⇩", callback_data="help_back"),
     ],
 ]
-            ),
             parse_mode=ParseMode.MARKDOWN,
             timeout=60,
             disable_web_page_preview=False,
-        )
 
 @run_async
 def Source_about_callback(update: Update, context: CallbackContext):
