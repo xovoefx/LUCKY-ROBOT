@@ -3,7 +3,7 @@ import time
 import re
 from sys import argv
 from typing import Optional
-import FallenRobot.modules.sql.users_sql as sql
+
 from FallenRobot import (
     ALLOW_EXCL,
     OWNER_USERNAME,
@@ -47,10 +47,6 @@ from telegram.ext import (
     MessageHandler,
 )
 from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
-from telegram import __version__ as telever
-from telethon import __version__ as tlhver
-from pyrogram import __version__ as pyrover
-from platform import python_version as y
 from telegram.utils.helpers import escape_markdown
 
 
@@ -79,17 +75,9 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-uptime = get_readable_time((time.time() - StartTime))
-
-
 PM_START_TEXT = """
-ʜᴇʏ [!](https://telegra.ph/file/9d57db2605497faa27903.jpg) {}\n
-ᴍʏ ɴᴀᴍᴇ ɪs ʟᴜᴄᴋʏ ʀᴏʙᴏᴛ ,{} ✨,\n✦ ᴀ ᴘᴏᴡᴇʀғᴜʟʟ ғᴜʟʟ ғʟᴇᴅɢᴇ\nᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʀᴏʙᴏᴛ ᴡɪᴛʜ ᴏsᴍ\nsᴇᴄᴜʀɪᴛʏ ᴀɴᴅ ᴍᴏᴅᴜʟᴇs!!\nʜɪᴛ ᴏɴ /help ᴀɴᴅ ᴇxᴘʟᴏʀᴇʀ ʏᴏᴜʀsᴇʟғ.\n
-─────────────────────
-    ➻ ᴜᴘᴛɪᴍᴇ: {}
-    ➻ ᴜsᴇʀs: {}
-    ➻ chats: {}
-─────────────────────
+ʜᴇʏ, [!](https://telegra.ph/file/9d57db2605497faa27903.jpg)\n\n
+ᴍʏ ɴᴀᴍᴇ ɪs ʟᴜᴄᴋʏ ʀᴏʙᴏᴛ ✨,\n───────────────\n✦ ᴀ ᴘᴏᴡᴇʀғᴜʟʟ ғᴜʟʟ ғʟᴇᴅɢᴇ\nᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʀᴏʙᴏᴛ ᴡɪᴛʜ ᴏsᴍ\nsᴇᴄᴜʀɪᴛʏ ᴀɴᴅ ᴍᴏᴅᴜʟᴇs!!\n───────────────\nʜɪᴛ ᴏɴ /help ᴀɴᴅ ᴇxᴘʟᴏʀᴇʀ ʏᴏᴜʀsᴇʟғ.​
 """
 
 buttons = [
@@ -101,7 +89,7 @@ buttons = [
     ],
     [
         InlineKeyboardButton(text="ᴍᴜꜱɪᴄ", callback_data=f"settings_back_helper"),
-        InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="fallen_support"),
+        InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="source_"),
     ],
     [
         InlineKeyboardButton(text="⇩ ꜱᴇᴇ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ ⇩", callback_data="help_back"),
@@ -115,7 +103,7 @@ FallenRobot_IMG = [
 ]
 
 HELP_STRINGS = f"""
-✿ Hᴇʏ, ʟᴜᴄᴋʏ-ʀᴏʙᴏᴛ 🇮🇳 ɪs ʜᴇʀᴇ!\n✦ ɪ ᴜsᴇ ᴍʏ ᴘᴏᴡᴇʀs ᴛᴏ ʜᴇʟᴘ ᴀᴅᴍɪɴs ᴛᴏ\nᴍᴀɴᴀɢᴇ ᴛʜᴇɪʀ ɢʀᴏᴜᴘs!\n✦ ᴍᴀɪɴ ᴄᴏᴍᴍᴀɴᴅs ᴀᴠᴀɪʟᴀʙʟᴇ :\n✦ /start  : ᴘᴍ's ʏᴏᴜ ᴛʜɪs ᴍᴇssᴀɢᴇ\nғᴏʀ ғᴜɴ😂.\n✦ /help :  ɪɴꜰᴏ ᴀʙᴏᴜᴛ  ᴍᴏᴅᴜʟᴇ.\n✦ /settings  : ᴛʀʏ ɪɴ ɢʀᴏᴜᴘ ғᴏʀ ᴍᴏʀᴇ\nʙᴇᴛᴛᴇʀ ᴇxᴘᴇʀɪᴇɴᴄᴇs🥲."""
+✿ Hᴇʏ, ʟᴜᴜᴄᴋʏ-ʀᴏʙᴏᴛ 🇮🇳 ɪs ʜᴇʀᴇ!\n✦ ɪ ᴜsᴇ ᴍʏ ᴘᴏᴡᴇʀs ᴛᴏ ʜᴇʟᴘ ᴀᴅᴍɪɴs ᴛᴏ\nᴍᴀɴᴀɢᴇ ᴛʜᴇɪʀ ɢʀᴏᴜᴘs!\n✦ ᴍᴀɪɴ ᴄᴏᴍᴍᴀɴᴅs ᴀᴠᴀɪʟᴀʙʟᴇ :\n✦ /start  : ᴘᴍ's ʏᴏᴜ ᴛʜɪs ᴍᴇssᴀɢᴇ\nғᴏʀ ғᴜɴ😂.\n✦ /help :  ɪɴꜰᴏ ᴀʙᴏᴜᴛ  ᴍᴏᴅᴜʟᴇ.\n✦ /settings  : ᴛʀʏ ɪɴ ɢʀᴏᴜᴘ ғᴏʀ ᴍᴏʀᴇ\nʙᴇᴛᴛᴇʀ ᴇxᴘᴇʀɪᴇɴᴄᴇs🥲."""
 
 DONATE_STRING = """[ᴍᴀʜ ᴏᴡɴᴇʀ](https://t.me/cute_boy701)"""
 
@@ -218,14 +206,9 @@ def start(update: Update, context: CallbackContext):
             elif args[0][1:].isdigit() and "rules" in IMPORTED:
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
-        else:    
-            first_name = update.effective_user.first_name
+        else:
             update.effective_message.reply_text(
-                PM_START_TEXT.format(
-                    escape_markdown(first_name),
-                    START_IMG,
-                    escape_markdown(get_readable_time((time.time() - StartTime))),                  sql.num_users(),
-                    sql.num_chats()),
+                PM_START_TEXT.format(dispatcher.bot.first_name),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
@@ -399,7 +382,7 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
                         ),
                     ],
                     [
-                        InlineKeyboardButton(text="◁", callback_data="CoderX_back"),
+                        InlineKeyboardButton(text="◁", callback_data="fallen_back"),
                     ],
                 ]
             ),
@@ -433,25 +416,15 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
                 ]
             ),
         )
-    elif query.data == "CoderX_back":
+    elif query.data == "fallen_back":
         query.message.edit_text(
-            PM_START_TEXT.format(
-                   escape_markdown(first_name),
-                    START_IMG,
-                    escape_markdown(uptime),
-                    sql.num_users(),
-                    sql.num_chats()),
-            reply_markup=InlineKeyboardMarkup(
-            text="••ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜ ɢʀᴏᴜᴘ••",
-            url=f"https://t.me/{dispatcher.bot.username}?startgroup=true",
-        ),
-        InlineKeyboardButton(text="ᴍᴜꜱɪᴄ", callback_data=f"settings_back_helper"),
-        InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="source_"),
-        InlineKeyboardButton(text="⇩ ꜱᴇᴇ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ ⇩", callback_data="help_back"),
+            PM_START_TEXT.format(dispatcher.bot.first_name),
+            reply_markup=InlineKeyboardMarkup(buttons),
             parse_mode=ParseMode.MARKDOWN,
             timeout=60,
             disable_web_page_preview=False,
         )
+
 
 @run_async
 def Source_about_callback(update: Update, context: CallbackContext):
@@ -467,15 +440,10 @@ def Source_about_callback(update: Update, context: CallbackContext):
         )
     elif query.data == "source_back":
         query.message.edit_text(
-            PM_START_TEXT.format(
-                    escape_markdown(first_name),
-                    START_IMG,
-                    escape_markdown(uptime),
-                    sql.num_users(),
-                    sql.num_chats()),
-                reply_markup=InlineKeyboardMarkup(buttons),
-                parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
+            PM_START_TEXT.format(dispatcher.bot.first_name),
+            reply_markup=InlineKeyboardMarkup(buttons),
+            parse_mode=ParseMode.MARKDOWN,
+            timeout=60,
             disable_web_page_preview=False,
         )
 
@@ -763,19 +731,10 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendAnimation(
+            dispatcher.bot.send_photo(
                 f"@{SUPPORT_CHAT}",
-                animation="https://telegra.ph/file/e097f5ae9491d5d4c0e3f.mp4",
-                caption=f"""
-ㅤㅤ🥀 {dispatcher.bot.first_name} ɪs ᴀʟɪᴠᴇ ʙᴀʙʏ...
-━━━━━━━━━━━━━
-ㅤ๏ **ᴘʏᴛʜᴏɴ :** `{y()}`
-ㅤ๏ **ʟɪʙʀᴀʀʏ :** `{telever}`
-ㅤ๏ **ᴛᴇʟᴇᴛʜᴏɴ :** `{tlhver}`
-ㅤ๏ **ᴩʏʀᴏɢʀᴀᴍ :** `{pyrover}`
-━━━━━━━━━━━━━
-ᴍᴀᴅᴇ ᴡɪᴛʜ 🖤 ʙʏ [ʟ ᴜ ᴄ ᴋ ʏ](https://t.me/{OWNER_USERNAME})""",
-                parse_mode=ParseMode.MARKDOWN,
+                "https://telegra.ph/file/c3d745fe632ed0a918719.jpg",
+                caption="ʟᴜᴄᴋʏ ✘ ʀᴏʙᴏᴛ ɪs ᴀʟɪᴠᴇ !\n\nᴍᴀᴅᴇ ᴡɪᴛʜ 🖤 ʙʏ ʟᴜᴄᴋʏ 🥀",
             )
         except Unauthorized:
             LOGGER.warning(
