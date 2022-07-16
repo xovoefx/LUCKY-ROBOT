@@ -29,14 +29,13 @@ wikipedia
 telethon
 telegraph
 heroku3
-nekos.py
 alphabet_detector
 pyrate-limiter
 cachetools
 ujson
 pretty_errors
 TgCrypto
-Pyrogram==2.0.30
+Pyrogram==2.0.32
 youtube_search
 asyncio
 dateparser
