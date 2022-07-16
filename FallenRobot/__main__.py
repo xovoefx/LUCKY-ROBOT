@@ -1,4 +1,5 @@
 import importlib
+impimport importlib
 import time
 import re
 from sys import argv
@@ -47,6 +48,9 @@ from telegram.ext import (
     MessageHandler,
 )
 from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
+from telegram import __version__ as telever
+from telethon import __version__ as tlhver
+from pyrogram import __version__ as pyrover
 from platform import python_version as y
 from telegram.utils.helpers import escape_markdown
 
