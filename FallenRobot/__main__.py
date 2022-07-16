@@ -47,6 +47,7 @@ from telegram.ext import (
     MessageHandler,
 )
 from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
+from platform import python_version as y
 from telegram.utils.helpers import escape_markdown
 
 
