@@ -92,7 +92,7 @@ buttons = [
         ),
     ],
     [
-        InlineKeyboardButton(text="ᴍᴜꜱɪᴄ", callback_data="music_),
+        InlineKeyboardButton(text="ᴍᴜꜱɪᴄ", callback_data=f"settings_back_helper"),
         InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="fallen_"),
     ],
     [
