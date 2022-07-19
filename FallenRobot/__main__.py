@@ -28,6 +28,7 @@ from FallenRobot import (
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
 from FallenRobot.modules import ALL_MODULES
+import FallenRobot.modules.sql.users_sql as sql
 from FallenRobot.modules.helper_funcs.chat_status import is_user_admin
 from FallenRobot.modules.helper_funcs.misc import paginate_modules
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
@@ -80,36 +81,50 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-ʜᴇʏ, [!](https://telegra.ph/file/9d57db2605497faa27903.jpg)\n\n
-ᴍʏ ɴᴀᴍᴇ ɪs ʟᴜᴄᴋʏ ʀᴏʙᴏᴛ ✨,\n───────────────\n✦ ᴀ ᴘᴏᴡᴇʀғᴜʟʟ ғᴜʟʟ ғʟᴇᴅɢᴇ\nᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʀᴏʙᴏᴛ ᴡɪᴛʜ ᴏsᴍ\nsᴇᴄᴜʀɪᴛʏ ᴀɴᴅ ᴍᴏᴅᴜʟᴇs!!\n───────────────\nʜɪᴛ ᴏɴ /help ᴀɴᴅ ᴇxᴘʟᴏʀᴇʀ ʏᴏᴜʀsᴇʟғ.​
+*ʜᴇʏ* {}, 🥀
+
+*๏ ᴛʜɪs ɪs* {} !
+➻ ᴛʜᴇ ᴍᴏsᴛ ᴩᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴀɴᴅ ɪ ʜᴀᴠᴇ sᴏᴍᴇ ᴀᴇsᴏᴍᴇ ᴀɴᴅ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs.
+
+──────────────────
+*๏ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʜᴇʟᴩ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴍʏ ᴍᴏᴅᴜʟᴇs ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅs.*
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="••ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜ ɢʀᴏᴜᴘ••",
+            text="ᴀᴅᴅ ᴍᴇ ᴇʟsᴇ ʏᴏᴜ ɢᴇʏ",
             url=f"https://t.me/{dispatcher.bot.username}?startgroup=true",
         ),
     ],
     [
-        InlineKeyboardButton(text="ᴍᴜꜱɪᴄ", callback_data=f"settings_back_helper"),
-        InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="fallen_"),
+        InlineKeyboardButton(text="ʜᴇʟᴩ & ᴄᴏᴍᴍᴀɴᴅs", callback_data="help_back"),
     ],
     [
-        InlineKeyboardButton(text="⇩ ꜱᴇᴇ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ ⇩", callback_data="help_back"),
+        InlineKeyboardButton(text="❄ ᴀʙᴏᴜᴛ ❄", callback_data="fallen_"),
+        InlineKeyboardButton(text="✨ sᴜᴩᴩᴏʀᴛ ✨", url=f"https://t.me/{SUPPORT_CHAT}"),
     ],
-]
-
-FallenRobot_IMG = [
-              "https://telegra.ph/file/b70eaaac6d46a04469cc3.jpg",
-              "https://telegra.ph/file/036139c8f3e30112586bb.jpg",
-              "https://telegra.ph/file/9d57db2605497faa27903.jpg",
+    [
+        InlineKeyboardButton(
+            text="🥀 ᴅᴇᴠᴇʟᴏᴩᴇʀ 🥀", url=f"tg://user?id={OWNER_ID}"
+        ),
+        InlineKeyboardButton(text="☁️ sᴏᴜʀᴄᴇ ☁️", callback_data="source_"),
+    ],
 ]
 
 HELP_STRINGS = f"""
-✿ Hᴇʏ, ʟᴜᴄᴋʏ-ʀᴏʙᴏᴛ 🇮🇳 ɪs ʜᴇʀᴇ!\n✦ ɪ ᴜsᴇ ᴍʏ ᴘᴏᴡᴇʀs ᴛᴏ ʜᴇʟᴘ ᴀᴅᴍɪɴs ᴛᴏ\nᴍᴀɴᴀɢᴇ ᴛʜᴇɪʀ ɢʀᴏᴜᴘs!\n✦ ᴍᴀɪɴ ᴄᴏᴍᴍᴀɴᴅs ᴀᴠᴀɪʟᴀʙʟᴇ :\n✦ /start  : ᴘᴍ's ʏᴏᴜ ᴛʜɪs ᴍᴇssᴀɢᴇ\nғᴏʀ ғᴜɴ😂.\n✦ /help :  ɪɴꜰᴏ ᴀʙᴏᴜᴛ  ᴍᴏᴅᴜʟᴇ.\n✦ /settings  : ᴛʀʏ ɪɴ ɢʀᴏᴜᴘ ғᴏʀ ᴍᴏʀᴇ\nʙᴇᴛᴛᴇʀ ᴇxᴘᴇʀɪᴇɴᴄᴇs🥲."""
+*» {dispatcher.bot.first_name} ᴇxᴄʟᴜsɪᴠᴇ ꜰᴇᴀᴛᴜʀᴇs*
 
-DONATE_STRING = """[ᴍᴀʜ ᴏᴡɴᴇʀ](https://t.me/cute_boy701)"""
+➲ /start : ꜱᴛᴀʀᴛꜱ ᴍᴇ | ᴀᴄᴄᴏʀᴅɪɴɢ ᴛᴏ ᴍᴇ ʏᴏᴜ'ᴠᴇ ᴀʟʀᴇᴀᴅʏ ᴅᴏɴᴇ ɪᴛ​.
+➲ /donate : sᴜᴘᴘᴏʀᴛ ᴍᴇ ʙʏ ᴅᴏɴᴀᴛɪɴɢ ꜰᴏʀ ᴍʏ ʜᴀʀᴅᴡᴏʀᴋ​.
+➲ /help  : ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅꜱ ꜱᴇᴄᴛɪᴏɴ.
+  ‣ ɪɴ ᴘᴍ : ᴡɪʟʟ ꜱᴇɴᴅ ʏᴏᴜ ʜᴇʟᴘ​ ꜰᴏʀ ᴀʟʟ ꜱᴜᴘᴘᴏʀᴛᴇᴅ ᴍᴏᴅᴜʟᴇꜱ.
+  ‣ ɪɴ ɢʀᴏᴜᴘ : ᴡɪʟʟ ʀᴇᴅɪʀᴇᴄᴛ ʏᴏᴜ ᴛᴏ ᴘᴍ, ᴡɪᴛʜ ᴀʟʟ ᴛʜᴀᴛ ʜᴇʟᴘ​ ᴍᴏᴅᴜʟᴇꜱ."""
+
+DONATE_STRING = """ʜᴇʏ ʙᴀʙʏ,
+  ʜᴀᴩᴩʏ ᴛᴏ ʜᴇᴀʀ ᴛʜᴀᴛ ʏᴏᴜ ᴡᴀɴɴᴀ ᴅᴏɴᴀᴛᴇ.
+
+ʏᴏᴜ ᴄᴀɴ ᴅɪʀᴇᴄᴛʟʏ ᴄᴏɴᴛᴀᴄᴛ ᴍʏ [ᴅᴇᴠᴇʟᴏᴩᴇʀ](https://t.me/anonymous_was_bot) ғᴏʀ ᴅᴏɴᴀᴛɪɴɢ ᴏʀ ʏᴏᴜ ᴄᴀɴ ᴠɪsɪᴛ ᴍʏ [sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ](https://t.me/DevilsHeavenMF) ᴀɴᴅ ᴀsᴋ ᴛʜᴇʀᴇ ᴀʙᴏᴜᴛ ᴅᴏɴᴀᴛɪᴏɴ."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -173,7 +188,9 @@ def send_help(chat_id, text, keyboard=None):
 @run_async
 def test(update: Update, context: CallbackContext):
     # pprint(eval(str(update)))
-    # update.effective_message.reply_text("Hola tester! _I_ *have* `markdown`", parse_mode=ParseMode.MARKDOWN)
+    update.effective_message.reply_text(
+        "Hola tester! _I_ *have* `markdown`", parse_mode=ParseMode.MARKDOWN
+    )
     update.effective_message.reply_text("This person edited a message")
     print(update.effective_message)
 
@@ -211,8 +228,14 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
+            first_name = update.effective_user.first_name
+            update.effective_message.reply_sticker(
+                "CAACAgUAAxkBAAJYsmLWRvm70cE-mmxSNCovEf4v1ueJAAIcCAACbMK4VuL4EmZEkq8WKQQ"
+            )
             update.effective_message.reply_text(
-                PM_START_TEXT.format(dispatcher.bot.first_name),
+                PM_START_TEXT.format(
+                    escape_markdown(first_name), dispatcher.bot.first_name
+                ),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
@@ -354,8 +377,22 @@ def help_button(update, context):
 def Fallen_about_callback(update: Update, context: CallbackContext):
     query = update.callback_query
     if query.data == "fallen_":
+        uptime = get_readable_time((time.time() - StartTime))
         query.message.edit_text(
-            text=f"ʜᴇʏ,\n\nᴄʟɪᴄᴋ ᴏɴ ʙᴜᴛᴛᴏɴ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ\nᴇxᴘʟᴏʀᴇʀ 🌺!\n\n**────────────────**\n➻ ᴏᴡɴᴇʀ - [ʟ ᴜ ᴄ ᴋ ʏ](https://t.me/cute_boy701\n➻ ꜱᴜᴘᴘᴏʀᴛ - [ᴏʏᴇ ɢᴏʟɢᴀᴘᴘᴜ](https://t.me/oye_golgappu)\n**────────────────**",
+            text=f"*ʜᴇʏ,*🥀\n  *ᴛʜɪs ɪs {dispatcher.bot.first_name}*"
+            "\n*ᴀ ᴘᴏᴡᴇʀꜰᴜʟ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ʙᴜɪʟᴛ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴇᴀꜱɪʟʏ ᴀɴᴅ ᴛᴏ ᴘʀᴏᴛᴇᴄᴛ ʏᴏᴜʀ ɢʀᴏᴜᴘ ꜰʀᴏᴍ ꜱᴄᴀᴍᴍᴇʀꜱ ᴀɴᴅ ꜱᴘᴀᴍᴍᴇʀꜱ.*"
+            "\n*ᴡʀɪᴛᴛᴇɴ ɪɴ ᴩʏᴛʜᴏɴ ᴡɪᴛʜ sǫʟᴀʟᴄʜᴇᴍʏ ᴀɴᴅ ᴍᴏɴɢᴏᴅʙ ᴀs ᴅᴀᴛᴀʙᴀsᴇ.*"
+            "\n\n────────────────────"
+            f"\n*➻ ᴜᴩᴛɪᴍᴇ »* {uptime}"
+            f"\n*➻ ᴜsᴇʀs »* {sql.num_users()}"
+            f"\n*➻ ᴄʜᴀᴛs »* {sql.num_chats()}"
+            "\n────────────────────"
+            "\n\n»  ɪ ᴄᴀɴ ʀᴇꜱᴛʀɪᴄᴛ ᴜꜱᴇʀꜱ."
+            "\n»  ɪ ʜᴀᴠᴇ ᴀɴ ᴀᴅᴠᴀɴᴄᴇᴅ ᴀɴᴛɪ-ꜰʟᴏᴏᴅ ꜱʏꜱᴛᴇᴍ."
+            "\n»  ɪ ᴄᴀɴ ɢʀᴇᴇᴛ ᴜꜱᴇʀꜱ ᴡɪᴛʜ ᴄᴜꜱᴛᴏᴍɪᴢᴀʙʟᴇ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇꜱꜱᴀɢᴇꜱ ᴀɴᴅ ᴇᴠᴇɴ ꜱᴇᴛ ᴀ ɢʀᴏᴜᴘ'ꜱ ʀᴜʟᴇꜱ."
+            "\n»  ɪ ᴄᴀɴ ᴡᴀʀɴ ᴜꜱᴇʀꜱ ᴜɴᴛɪʟ ᴛʜᴇʏ ʀᴇᴀᴄʜ ᴍᴀx ᴡᴀʀɴꜱ, ᴡɪᴛʜ ᴇᴀᴄʜ ᴘʀᴇᴅᴇꜰɪɴᴇᴅ ᴀᴄᴛɪᴏɴꜱ ꜱᴜᴄʜ ᴀꜱ ʙᴀɴ, ᴍᴜᴛᴇ, ᴋɪᴄᴋ, ᴇᴛᴄ."
+            "\n»  ɪ ʜᴀᴠᴇ ᴀ ɴᴏᴛᴇ ᴋᴇᴇᴘɪɴɢ ꜱʏꜱᴛᴇᴍ, ʙʟᴀᴄᴋʟɪꜱᴛꜱ, ᴀɴᴅ ᴇᴠᴇɴ ᴘʀᴇᴅᴇᴛᴇʀᴍɪɴᴇᴅ ʀᴇᴘʟɪᴇꜱ ᴏɴ ᴄᴇʀᴛᴀɪɴ ᴋᴇʏᴡᴏʀᴅꜱ."
+            f"\n\n➻ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ɢɪᴠᴇɴ ʙᴇʟᴏᴡ ғᴏʀ ɢᴇᴛᴛɪɴɢ ʙᴀsɪᴄ ʜᴇʟᴩ ᴀɴᴅ ɪɴғᴏ ᴀʙᴏᴜᴛ {dispatcher.bot.first_name}.",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -370,11 +407,11 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
                     ],
                     [
                         InlineKeyboardButton(
-                            text="ᴅᴇᴠᴇʟᴏᴩᴇʀ", url=f"https://t.me/{OWNER_USERNAME}"
+                            text="ᴅᴇᴠᴇʟᴏᴩᴇʀ", url=f"tg://user?id=1960744931"
                         ),
                         InlineKeyboardButton(
                             text="sᴏᴜʀᴄᴇ",
-                            url="https://github.com/mrluckyxd/Lucky-Robot",
+                            url="https://github.com/mrluckyxd/lucky-Robot",
                         ),
                     ],
                     [
@@ -400,10 +437,10 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
                     ],
                     [
                         InlineKeyboardButton(
-                            text="ᴅᴇᴠᴇʟᴏᴩᴇʀ", url="https://t.me/cute_boy701"
+                            text="ᴅᴇᴠᴇʟᴏᴩᴇʀ", url="tG://user?id=1960744931"
                         ),
                         InlineKeyboardButton(
-                            text="ɢɪᴛʜᴜʙ", url="https://github.com/mrluckyxd"
+                            text="ɢɪᴛʜᴜʙ", url="https://github.com/MRLUCKYXD"
                         ),
                     ],
                     [
@@ -413,8 +450,11 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
             ),
         )
     elif query.data == "fallen_back":
+        first_name = update.effective_user.first_name
         query.message.edit_text(
-            PM_START_TEXT.format(dispatcher.bot.first_name),
+            PM_START_TEXT.format(
+                escape_markdown(first_name), dispatcher.bot.first_name
+            ),
             reply_markup=InlineKeyboardMarkup(buttons),
             parse_mode=ParseMode.MARKDOWN,
             timeout=60,
@@ -425,9 +465,9 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
 @run_async
 def Source_about_callback(update: Update, context: CallbackContext):
     query = update.callback_query
-    if query.data == "music_":
+    if query.data == "source_":
         query.message.edit_text(
-            text="""❤️""",
+            text="""*ʜᴇʏ,*\n\n*ᴛʜɪs ɪs ʟᴜᴄᴋʏ ✘ ʀᴏʙᴏᴛ*\n\n*ʜᴇʀᴇ ɪs ᴍʏ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ :* [ɢɪᴛʜᴜʙ](https://github.com/mrluckyxd/Lucky-Robot)\n\n*ᴍʏ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ɪs ɪɴ ᴅᴇᴠᴇʟᴏᴘᴍᴇɴᴛ ᴀɴᴅ ɴᴏᴛ ᴄᴏᴍᴘʟᴇᴛᴇᴅ ʏᴇᴛ*\n*sᴏ ɪғ ʏᴏᴜ ғᴏᴜɴᴅ ᴀɴʏ ʙᴜɢ ᴏʀ ɪғ ʏᴏᴜ ᴡᴀɴɴᴀ ʀᴇǫᴜᴇsᴛ ᴀɴʏ ғᴇᴀᴛᴜʀᴇ, ᴩʟᴇᴀsᴇ ʟᴇᴛ ᴜs ᴋɴᴏᴡ ᴀᴛ* [ʟᴜᴄᴋʏ ᴡᴏʀʟᴅ](https://t.me/terayaarhoomai) *ᴏʀ ʏᴏᴜ ᴄᴀɴ ᴄᴏɴᴛᴀᴄᴛ ᴍʏ ᴅᴇᴠᴇʟᴏᴩᴇʀ :* [ʟ ᴜ ᴄ ᴋ ʏ](https://t.me/cute_boy701)""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -435,8 +475,11 @@ def Source_about_callback(update: Update, context: CallbackContext):
             ),
         )
     elif query.data == "source_back":
+        first_name = update.effective_user.first_name
         query.message.edit_text(
-            PM_START_TEXT.format(dispatcher.bot.first_name),
+            PM_START_TEXT.format(
+                escape_markdown(first_name), dispatcher.bot.first_name
+            ),
             reply_markup=InlineKeyboardMarkup(buttons),
             parse_mode=ParseMode.MARKDOWN,
             timeout=60,
@@ -679,11 +722,12 @@ def donate(update: Update, context: CallbackContext):
             DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
         )
 
-        if OWNER_ID != 1960744931 and DONATION_LINK:
+        if OWNER_ID != 1356469075 and DONATION_LINK:
             update.effective_message.reply_text(
-                "You can also donate to the person currently running me "
-                "[here]({})".format(DONATION_LINK),
+                f"» ᴛʜᴇ ᴅᴇᴠᴇʟᴏᴩᴇʀ ᴏғ {dispatcher.bot.first_name} sᴏʀᴄᴇ ᴄᴏᴅᴇ ɪs [ᴀɴᴏɴʏᴍᴏᴜs](https://t.me/anonymous_was_bot)."
+                f"\n\nʙᴜᴛ ʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ ᴅᴏɴᴀᴛᴇ ᴛᴏ ᴛʜᴇ ᴩᴇʀsᴏɴ ᴄᴜʀʀᴇɴᴛʟʏ ʀᴜɴɴɪɴɢ ᴍᴇ : [ʜᴇʀᴇ]({DONATION_LINK})",
                 parse_mode=ParseMode.MARKDOWN,
+                disable_web_page_preview=True,
             )
 
     else:
@@ -729,7 +773,7 @@ def main():
         try:
             dispatcher.bot.sendAnimation(
                 f"@{SUPPORT_CHAT}",
-                animation="https://telegra.ph/file/2e2878cf34e67b8137a78.mp4",
+                animation="https://telegra.ph/file/38091db0a04a50d938db6.mp4",
                 caption=f"""
 ㅤㅤ🥀 {dispatcher.bot.first_name} ɪs ᴀʟɪᴠᴇ ʙᴀʙʏ...
 
@@ -740,8 +784,12 @@ def main():
 ㅤ๏ **ᴩʏʀᴏɢʀᴀᴍ :** `{pyrover}`
 ━━━━━━━━━━━━━
 
-ᴍᴀᴅᴇ ᴡɪᴛʜ 🖤 ʙʏ [ʟ ᴜ ᴄ ᴋ ʏ](https://t.me/{OWNER_USERNAME})""",
+ᴍᴀᴅᴇ ᴡɪᴛʜ 🖤 ʙʏ [𝐋 𝐔 𝐂 𝐊 𝐘](https://t.me/{OWNER_USERNAME})""",
                 parse_mode=ParseMode.MARKDOWN,
+            )
+        except Unauthorized:
+            LOGGER.warning(
+                f"Bot isn't able to send message to @{SUPPORT_CHAT}, go and check!"
             )
         except BadRequest as e:
             LOGGER.warning(e.message)
@@ -788,7 +836,7 @@ def main():
             updater.bot.set_webhook(url=URL + TOKEN)
 
     else:
-        LOGGER.info("Using long polling.")
+        LOGGER.info("ᴜꜱɪɴɢ ʟᴏɴɢ ᴘᴏʟʟɪɴɢ 🍹.")
         updater.start_polling(timeout=15, read_latency=4, clean=True)
 
     if len(argv) not in (1, 3, 4):
