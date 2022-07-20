@@ -6,7 +6,7 @@ from datetime import datetime
 from telethon import types
 from telethon.tl import functions
 from FallenRobot.events import register
-from FallenRobot import TEMP_DOWNLOAD_DIRECTORY, REM_BG_API_KEY, telethn
+from FallenRobot import telethn
 
 async def is_register_admin(chat, user):
     if isinstance(chat, (types.InputPeerChannel, types.InputChannel)):
