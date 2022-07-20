@@ -2,7 +2,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl import functions, types
 
 from FallenRobot.events import register as AsuXRobot
-from FallenRobot import telethn, ubot
+from FallenRobot import telethn, tbot
 
 
 async def is_register_admin(chat, user):
