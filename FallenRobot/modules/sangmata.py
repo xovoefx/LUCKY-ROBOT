@@ -22,7 +22,7 @@ async def lastname(steal):
         return
     await puki.edit("```Please wait...```")
     try:
-        async with ubot.conversation(chat) as conv:
+        async with tbot.conversation(chat) as conv:
             try:
                 msg = await conv.send_message(id)
                 r = await conv.get_response()
@@ -35,7 +35,7 @@ async def lastname(steal):
             if r.text.startswith("Name"):
                 respond = await conv.get_response()
                 await puki.edit(f"`{r.message}`")
-                await ubot.delete_messages(
+                await tbot.delete_messages(
                     conv.chat_id, [msg.id, r.id, response.id, respond.id]
                 ) 
                 return
@@ -43,14 +43,14 @@ async def lastname(steal):
                 "No records"
             ):
                 await puki.edit("```I Can't Find This User's Information, This User Has Never Changed His Name Before.```")
-                await ubot.delete_messages(
+                await tbot.delete_messages(
                     conv.chat_id, [msg.id, r.id, response.id]
                 )
                 return
             else:
                 respond = await conv.get_response()
                 await puki.edit(f"```{response.message}```")
-            await ubot.delete_messages(
+            await tbot.delete_messages(
                 conv.chat_id, [msg.id, r.id, response.id, respond.id]
             )
     except TimeoutError:
