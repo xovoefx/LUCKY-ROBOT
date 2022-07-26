@@ -99,7 +99,7 @@ buttons = [
     ],
     [
         InlineKeyboardButton(text="⍟ ᴀʙᴏᴜᴛ ⍟", callback_data="fallen_"),
-        InlineKeyboardButton(text="⍟ ᴍᴜꜱɪᴄ ⍟", callback_data=f"settings_back_helper"),
+        InlineKeyboardButton(text="⍟ ᴍᴜꜱɪᴄ ⍟", callback_data=f"music_"),
     ],
     [
         InlineKeyboardButton(text="ʜᴇʟᴩ & ᴄᴏᴍᴍᴀɴᴅs", callback_data="help_back"),
@@ -459,16 +459,16 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
 @run_async
 def Source_about_callback(update: Update, context: CallbackContext):
     query = update.callback_query
-    if query.data == "source_":
+    if query.data == "music_":
         query.message.edit_text(
-            text="""*ʜᴇʏ,*\n\n*ᴛʜɪs ɪs ʟᴜᴄᴋʏ ✘ ʀᴏʙᴏᴛ*\n\n*ʜᴇʀᴇ ɪs ᴍʏ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ :* [ɢɪᴛʜᴜʙ](https://github.com/mrluckyxd/Lucky-Robot)\n\n*ᴍʏ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ɪs ɪɴ ᴅᴇᴠᴇʟᴏᴘᴍᴇɴᴛ ᴀɴᴅ ɴᴏᴛ ᴄᴏᴍᴘʟᴇᴛᴇᴅ ʏᴇᴛ*\n*sᴏ ɪғ ʏᴏᴜ ғᴏᴜɴᴅ ᴀɴʏ ʙᴜɢ ᴏʀ ɪғ ʏᴏᴜ ᴡᴀɴɴᴀ ʀᴇǫᴜᴇsᴛ ᴀɴʏ ғᴇᴀᴛᴜʀᴇ, ᴩʟᴇᴀsᴇ ʟᴇᴛ ᴜs ᴋɴᴏᴡ ᴀᴛ* [ʟᴜᴄᴋʏ ᴡᴏʀʟᴅ](https://t.me/terayaarhoomai) *ᴏʀ ʏᴏᴜ ᴄᴀɴ ᴄᴏɴᴛᴀᴄᴛ ᴍʏ ᴅᴇᴠᴇʟᴏᴩᴇʀ :* [ʟ ᴜ ᴄ ᴋ ʏ](https://t.me/cute_boy701)""",
+            text="""*» ʟᴜᴄᴋʏ ᴍᴜꜱɪᴄꜱ ᴄᴏᴍᴍᴀɴᴅꜱ «*\n\n*ᴀᴅᴍɪɴ ✘ ᴄᴏᴍᴍᴀɴᴅꜱ*\n*/play : ɢɪᴠᴇ ᴀ ꜱᴏɴɢ ɴᴀᴍᴇ ᴏʀ ʏᴛ ʟɪɴᴋ*\n*/vplay : ꜰᴏʀ ᴘʟᴀʏɪɴɢ ᴠɪᴅᴇᴏ ꜱᴏɴɢꜱ ɪɴ ᴠᴄ*\n*/pause : ꜰᴏʀ ᴘᴀᴜꜱᴇ ᴍᴜꜱɪᴄ ꜱᴛʀᴇᴀᴍ*\n*/resume : ꜰᴏʀ ʀᴇꜱᴜᴍᴇ ᴍᴜꜱɪᴄ ꜱᴛʀᴇᴀᴍ*\n*/skip : ᴛᴏ ꜱᴋɪᴘ ᴄᴜʀʀᴇɴᴛ ꜱᴏɴɢ*\n  [ʟ ᴜ ᴄ ᴋ ʏ](https://t.me/cute_boy701)""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="◁", callback_data="source_back")]]
+                [[InlineKeyboardButton(text="◁", callback_data="music_back")]]
             ),
         )
-    elif query.data == "source_back":
+    elif query.data == "music_back":
         first_name = update.effective_user.first_name
         query.message.edit_text(
             PM_START_TEXT.format(
