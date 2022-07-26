@@ -456,14 +456,10 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
         )
 
 
-@run_async
-def Source_about_callback(update: Update, context: CallbackContext):
-    query = update.callback_query
-    if query.data == "music_":
+    elif query.data == "music_":
         query.message.edit_text(
             text="""*» ʟᴜᴄᴋʏ ᴍᴜꜱɪᴄꜱ ᴄᴏᴍᴍᴀɴᴅꜱ «*\n\n*ᴀᴅᴍɪɴ ✘ ᴄᴏᴍᴍᴀɴᴅꜱ*\n*/play : ɢɪᴠᴇ ᴀ ꜱᴏɴɢ ɴᴀᴍᴇ ᴏʀ ʏᴛ ʟɪɴᴋ*\n*/vplay : ꜰᴏʀ ᴘʟᴀʏɪɴɢ ᴠɪᴅᴇᴏ ꜱᴏɴɢꜱ ɪɴ ᴠᴄ*\n*/pause : ꜰᴏʀ ᴘᴀᴜꜱᴇ ᴍᴜꜱɪᴄ ꜱᴛʀᴇᴀᴍ*\n*/resume : ꜰᴏʀ ʀᴇꜱᴜᴍᴇ ᴍᴜꜱɪᴄ ꜱᴛʀᴇᴀᴍ*\n*/skip : ᴛᴏ ꜱᴋɪᴘ ᴄᴜʀʀᴇɴᴛ ꜱᴏɴɢ*\n  [ʟ ᴜ ᴄ ᴋ ʏ](https://t.me/cute_boy701)""",
             parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="◁", callback_data="music_back")]]
             ),
