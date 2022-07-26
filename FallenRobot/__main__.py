@@ -99,7 +99,7 @@ buttons = [
     ],
     [
         InlineKeyboardButton(text="⍟ ᴀʙᴏᴜᴛ ⍟", callback_data="fallen_"),
-        InlineKeyboardButton(text="⍟ ᴍᴜꜱɪᴄ ⍟", callback_data="music_"),
+        InlineKeyboardButton(text="⍟ ᴍᴜꜱɪᴄ ⍟", callback_data="Music_"),
     ],
     [
         InlineKeyboardButton(text="ʜᴇʟᴩ & ᴄᴏᴍᴍᴀɴᴅs", callback_data="help_back"),
@@ -457,7 +457,7 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
 
 
 @run_async
-def Source_about_callback(update: Update, context: CallbackContext):
+def Music_about_callback(update: Update, context: CallbackContext):
     query = update.callback_query
     if query.data == "music_":
         query.message.edit_text(
@@ -482,7 +482,7 @@ def Source_about_callback(update: Update, context: CallbackContext):
                 [[InlineKeyboardButton(text="◁", callback_data="source_back")]]
             ),
         )
-    elif query.data == "source_back":
+    elif query.data == "Music_back":
         first_name = update.effective_user.first_name
         query.message.edit_text(
             PM_START_TEXT.format(
