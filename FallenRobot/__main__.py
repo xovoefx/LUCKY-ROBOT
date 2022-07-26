@@ -459,7 +459,7 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
 @run_async
 def Music_about_callback(update: Update, context: CallbackContext):
     query = update.callback_query
-    if query.data == "Music_":
+    if query.data == "music_":
         query.message.edit_text(
             text=f"""
 *ʜᴇʏ,
@@ -479,7 +479,7 @@ def Music_about_callback(update: Update, context: CallbackContext):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="◁", callback_data="source_back")]]
+                [[InlineKeyboardButton(text="◁", callback_data="Music_back")]]
             ),
         )
     elif query.data == "Music_back":
