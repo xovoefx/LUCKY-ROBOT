@@ -99,7 +99,7 @@ buttons = [
     ],
     [
         InlineKeyboardButton(text="⍟ ᴀʙᴏᴜᴛ ⍟", callback_data="fallen_"),
-        InlineKeyboardButton(text="⍟ ᴍᴜꜱɪᴄ ⍟", callback_data="music_"),
+        InlineKeyboardButton(text="⍟ ᴍᴜꜱɪᴄ ⍟", callback_data=f"settings_back_helper"),
     ],
     [
         InlineKeyboardButton(text="ʜᴇʟᴩ & ᴄᴏᴍᴍᴀɴᴅs", callback_data="help_back"),
@@ -456,15 +456,34 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
         )
 
 
-    elif query.data == "music_":
+@run_async
+def Source_about_callback(update: Update, context: CallbackContext):
+    query = update.callback_query
+    if query.data == "source_":
         query.message.edit_text(
-            text="""*» ʟᴜᴄᴋʏ ᴍᴜꜱɪᴄꜱ ᴄᴏᴍᴍᴀɴᴅꜱ «*\n\n*ᴀᴅᴍɪɴ ✘ ᴄᴏᴍᴍᴀɴᴅꜱ*\n*/play : ɢɪᴠᴇ ᴀ ꜱᴏɴɢ ɴᴀᴍᴇ ᴏʀ ʏᴛ ʟɪɴᴋ*\n*/vplay : ꜰᴏʀ ᴘʟᴀʏɪɴɢ ᴠɪᴅᴇᴏ ꜱᴏɴɢꜱ ɪɴ ᴠᴄ*\n*/pause : ꜰᴏʀ ᴘᴀᴜꜱᴇ ᴍᴜꜱɪᴄ ꜱᴛʀᴇᴀᴍ*\n*/resume : ꜰᴏʀ ʀᴇꜱᴜᴍᴇ ᴍᴜꜱɪᴄ ꜱᴛʀᴇᴀᴍ*\n*/skip : ᴛᴏ ꜱᴋɪᴘ ᴄᴜʀʀᴇɴᴛ ꜱᴏɴɢ*\n  [ʟ ᴜ ᴄ ᴋ ʏ](https://t.me/cute_boy701)""",
+            text=f"""
+*ʜᴇʏ,
+ ᴛʜɪs ɪs {dispatcher.bot.first_name},
+ᴀɴ ᴏᴩᴇɴ sᴏᴜʀᴄᴇ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ.*
+
+ᴡʀɪᴛᴛᴇɴ ɪɴ ᴩʏᴛʜᴏɴ ᴡɪᴛʜ ᴛʜᴇ ʜᴇʟᴩ ᴏғ : [ᴛᴇʟᴇᴛʜᴏɴ](https://github.com/LonamiWebs/Telethon)
+[ᴩʏʀᴏɢʀᴀᴍ](https://github.com/pyrogram/pyrogram)
+[ᴩʏᴛʜᴏɴ-ᴛᴇʟᴇɢʀᴀᴍ-ʙᴏᴛ](https://github.com/python-telegram-bot/python-telegram-bot)
+ᴀɴᴅ ᴜsɪɴɢ [sǫʟᴀʟᴄʜᴇᴍʏ](https://www.sqlalchemy.org) ᴀɴᴅ [ᴍᴏɴɢᴏ](https://cloud.mongodb.com) ᴀs ᴅᴀᴛᴀʙᴀsᴇ.
+
+*ʜᴇʀᴇ ɪs ᴍʏ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ :* [ɢɪᴛʜᴜʙ](https://github.com/mrluckyxd/Lucky-Robot)
+
+{dispatcher.bot.first_name} ɪs ʟɪᴄᴇɴsᴇᴅ ᴜɴᴅᴇʀ ᴛʜᴇ [ᴍɪᴛ ʟɪᴄᴇɴsᴇ](https://github.com/mrluckyxd/Lucky-Robot/blob/master/LICENSE).
+© 2022 - 2023 [@ʟᴜᴄᴋʏᴡᴏʀʟᴅ](https://t.me/{SUPPORT_CHAT}), ᴀʟʟ ʀɪɢʜᴛs ʀᴇsᴇʀᴠᴇᴅ.
+""",
             parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="◁", callback_data="music_back")]]
+                [[InlineKeyboardButton(text="◁", callback_data="source_back")]]
             ),
         )
-    elif query.data == "music_back":
+    elif query.data == "source_back":
+        first_name = update.effective_user.first_name
         query.message.edit_text(
             PM_START_TEXT.format(
                 escape_markdown(first_name), dispatcher.bot.first_name
