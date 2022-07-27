@@ -6,7 +6,7 @@ from pyrogram.types import (
     Message,
 )
 
-from scenario import BOT_NAME
+from FallenRobot import BOT_NAME
 
 # By @TroJanzHEX
 from FallenRobot.utils.resources.ImageEditor.edit_1 import (  # pylint:disable=import-error
