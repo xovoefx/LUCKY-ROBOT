@@ -33,32 +33,32 @@ normiefont = [
     "z",
 ]
 weebyfont = [
-    "卂",
-    "乃",
-    "匚",
-    "刀",
-    "乇",
-    "下",
-    "厶",
-    "卄",
-    "工",
-    "丁",
-    "长",
-    "乚",
-    "从",
-    "𠘨",
-    "口",
-    "尸",
-    "㔿",
-    "尺",
-    "丂",
-    "丅",
-    "凵",
-    "リ",
-    "山",
-    "乂",
-    "丫",
-    "乙",
+    "ᴀ",
+    "ʙ",
+    "ᴄ",
+    "ᴅ",
+    "ᴇ",
+    "ꜰ",
+    "ɢ",
+    "ʜ",
+    "ɪ",
+    "ᴊ",
+    "ᴋ",
+    "ʟ",
+    "ᴍ",
+    "ɴ",
+    "ᴏ",
+    "ᴘ",
+    "Q",
+    "ʀ",
+    "ꜱ",
+    "ᴛ",
+    "ᴜ",
+    "ᴠ",
+    "ᴡ",
+    "x",
+    "ʏ",
+    "ᴢ",
 ]
 bubblefont = [
     "ⓐ",
@@ -478,17 +478,17 @@ __help__ = """
 
 *ᴄᴏɴᴠᴇʀᴛs sɪᴍᴩʟᴇ ᴛᴇxᴛ ᴛᴏ ʙᴇᴀᴜᴛɪғᴜʟ ᴛᴇxᴛ ʙʏ ᴄʜᴀɴɢɪɴɢ ɪᴛ's ғᴏɴᴛ*
 
- ❍ /weebify *:* Change the text into weeb text.
- ❍ /bubble *:* Change the text into bubble text.
- ❍ /fbubble *:* Change the text into fbubble text.
- ❍ /square *:* Change the text into square text.
- ❍ /blue *:* Change the text into blue text.
- ❍ /latin *:* Change the text into latin text.
- ❍ /lined *:* Change the text into lined text.
+ ❍ /lucky *:* ᴄʜᴀɴɢᴇ ᴛʜᴇ ꜰᴏɴᴛ ɪɴᴛᴏ ʟᴜᴄᴋʏ ꜰᴏɴᴛ.
+ ❍ /bubble *:* ᴄʜᴀɴɢᴇᴇ ᴛʜᴇᴇ ᴛᴇxᴛ ɪɴᴛᴏ ʙᴜʙʙʟᴇ ᴛᴇxᴛ.
+ ❍ /fbubble *:* ᴄʜᴀɴɢᴇ ᴛʜᴇ ᴛᴇxᴛ ɪɴᴛᴏ ꜰʙᴜʙʙʟᴇ ᴛᴇxᴛ.
+ ❍ /square *:* ᴄʜᴀɴɢᴇ ᴛʜᴇ ᴛᴇxᴛ ɪɴᴛᴏ ꜱQᴜᴀʀᴇ ᴛᴇxᴛ.
+ ❍ /blue *:* ᴄʜᴀɴɢᴇ ᴛʜᴇ ᴛᴇxᴛ ɪɴᴛᴏ ʙʟᴜᴇ ᴛᴇxᴛ.
+ ❍ /latin *:* ᴄʜᴀɴɢᴇ ᴛʜᴇ ᴛᴇxᴛ ɪɴᴛᴏ ʟᴀᴛɪɴ ᴛᴇxᴛ.
+ ❍ /lined *:* ᴄʜᴀɴɢᴇ ᴛʜᴇ ᴛᴇxᴛ ɪɴᴛᴏ ʟɪɴᴇᴅ ᴛᴇxᴛ.
  """
 __mod_name__ = "Fᴏɴᴛ Eᴅɪᴛᴏʀ ✍🏻"
 
-WEEBIFY_HANDLER = DisableAbleCommandHandler("weebify", weebify)
+LUCKY_HANDLER = DisableAbleCommandHandler("lucky", op)
 BUBBLE_HANDLER = DisableAbleCommandHandler("bubble", bubble)
 FBUBBLE_HANDLER = DisableAbleCommandHandler("fbubble", fbubble)
 SQUARE_HANDLER = DisableAbleCommandHandler("square", square)
@@ -497,7 +497,7 @@ BLUE_HANDLER = DisableAbleCommandHandler("blue", blue)
 LATIN_HANDLER = DisableAbleCommandHandler("latin", latin)
 LINED_HANDLER = DisableAbleCommandHandler("lined", lined)
 
-dispatcher.add_handler(WEEBIFY_HANDLER)
+dispatcher.add_handler(LUCKY_HANDLER)
 dispatcher.add_handler(BUBBLE_HANDLER)
 dispatcher.add_handler(FBUBBLE_HANDLER)
 dispatcher.add_handler(SQUARE_HANDLER)
@@ -506,7 +506,7 @@ dispatcher.add_handler(BLUE_HANDLER)
 dispatcher.add_handler(LATIN_HANDLER)
 dispatcher.add_handler(LINED_HANDLER)
 
-__command_list__ = ["weebify"]
+__command_list__ = ["lucky"]
 __command_list__ = ["bubble"]
 __command_list__ = ["fbubble"]
 __command_list__ = ["square"]
@@ -514,7 +514,7 @@ __command_list__ = ["fsquare"]
 __command_list__ = ["blue"]
 __command_list__ = ["latin"]
 __command_list__ = ["lined"]
-__handlers__ = [WEEBIFY_HANDLER]
+__handlers__ = [LUCKY_HANDLER]
 __handlers__ = [BUBBLE_HANDLER]
 __handlers__ = [FBUBBLE_HANDLER]
 __handlers__ = [SQUARE_HANDLER]
