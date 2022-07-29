@@ -32,7 +32,7 @@ normiefont = [
     "y",
     "z",
 ]
-weebyfont = [
+luckyfont = [
     "ᴀ",
     "ʙ",
     "ᴄ",
@@ -259,7 +259,7 @@ linedfont = [
 
 
 @typing_action
-def weebify(update, context):
+def lucky(update, context):
     args = context.args
     message = update.effective_message
     string = ""
@@ -271,12 +271,12 @@ def weebify(update, context):
         string = "  ".join(args).lower()
 
     if not string:
-        message.reply_text("Usage is `/weebify <text>`", parse_mode=ParseMode.MARKDOWN)
+        message.reply_text("Usage is `/lucky <text>`", parse_mode=ParseMode.MARKDOWN)
         return
 
     for normiecharacter in string:
         if normiecharacter in normiefont:
-            weebycharacter = weebyfont[normiefont.index(normiecharacter)]
+            weebycharacter = luckyfont[normiefont.index(normiecharacter)]
             string = string.replace(normiecharacter, weebycharacter)
 
     if message.reply_to_message:
