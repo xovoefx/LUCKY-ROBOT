@@ -488,7 +488,7 @@ __help__ = """
  """
 __mod_name__ = "Fᴏɴᴛ Eᴅɪᴛᴏʀ ✍🏻"
 
-LUCKY_HANDLER = DisableAbleCommandHandler("lucky", op)
+LUCKY_HANDLER = DisableAbleCommandHandler("lucky", lucky)
 BUBBLE_HANDLER = DisableAbleCommandHandler("bubble", bubble)
 FBUBBLE_HANDLER = DisableAbleCommandHandler("fbubble", fbubble)
 SQUARE_HANDLER = DisableAbleCommandHandler("square", square)
