@@ -175,6 +175,15 @@ def kang(update: Update, context: CallbackContext):
                     + f"\n*ᴇᴍᴏᴊɪ ɪꜱ*: {sticker_emoji}",
                     parse_mode=ParseMode.MARKDOWN,
                 )
+                InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                text="ᴠɪᴇᴡ ᴘᴀᴄᴋ", url=f"t.me/addstickers/{packname}"
+                            )
+                        ]
+                    ]
+                )
 
             except OSError as e:
                 msg.reply_text("I can only kang images m8.")
