@@ -171,7 +171,7 @@ def kang(update: Update, context: CallbackContext):
                     ]
                 )
                 msg.reply_text(
-                    f"*ʏᴏᴜʀ ꜱᴛɪᴄᴋᴇʀ ʜᴀꜱ ʙᴇᴇɴ ᴀᴅᴅᴇᴅ!*\n*ғᴏʀ ғᴀꜱᴛ ᴜᴘᴅᴀᴛᴇ .ʀᴇᴍᴏᴠᴇ*\n*ᴀᴅᴅ ᴀɢᴀɪɴ*"
+                    f"*[ʏᴏᴜʀ ꜱᴛɪᴄᴋᴇʀ ʜᴀꜱ ʙᴇᴇɴ ᴀᴅᴅᴇᴅ!](t.me/addstickers/{packname})*\n*ғᴏʀ ғᴀꜱᴛ ᴜᴘᴅᴀᴛᴇ .ʀᴇᴍᴏᴠᴇ*\n*ᴀᴅᴅ ᴀɢᴀɪɴ*"
                     + f"\n*ᴇᴍᴏᴊɪ ɪꜱ*: {sticker_emoji}",
                     parse_mode=ParseMode.MARKDOWN,
                 )
