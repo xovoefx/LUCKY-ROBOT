@@ -223,9 +223,6 @@ def start(update: Update, context: CallbackContext):
 
         else:
             first_name = update.effective_user.first_name
-            update.effective_message.reply_sticker(
-                "CAACAgUAAxkBAAJYsmLWRvm70cE-mmxSNCovEf4v1ueJAAIcCAACbMK4VuL4EmZEkq8WKQQ"
-            )
             update.effective_message.reply_text(
                 PM_START_TEXT.format(
                     escape_markdown(first_name), dispatcher.bot.first_name
@@ -471,15 +468,19 @@ def Music_about_callback(update: Update, context: CallbackContext):
                     [
                     InlineKeyboardButton(text="🍹 ᴀᴅᴍɪɴ 🍹", callback_data="Music_admin"),
                     InlineKeyboardButton(text="🍬 ᴘʟᴀʏ 🍬", callback_data="Music_play"),
-                 ]
+                    ]
+                    [
+                    InlineKeyboardButton(text="🍸 ʙᴏᴛ 🍸", callback_data="Music_bot"),
+                    InlineKeyboardButton(text="🍷 ᴇxᴛʀᴀ 🍷", callback_data="Music_extra"),
+                    ]
                 ]
             ),
         )
     elif query.data == "Music_admin":
         query.message.edit_text(
-            text=f"**» ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅꜱ «**"
+            text=f"*» ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅꜱ «*"
             f"""
-ᴊᴜsᴛ ᴀᴅᴅ **ᴄ** ɪɴ ᴛʜᴇ sᴛᴀʀᴛɪɴɢ ᴏғ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅs ᴛᴏ ᴜsᴇ ᴛʜᴇᴍ ғᴏʀ ᴄʜᴀɴɴᴇʟ.
+ᴊᴜsᴛ ᴀᴅᴅ *ᴄ* ɪɴ ᴛʜᴇ sᴛᴀʀᴛɪɴɢ ᴏғ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅs ᴛᴏ ᴜsᴇ ᴛʜᴇᴍ ғᴏʀ ᴄʜᴀɴɴᴇʟ.
 
 /pause : ᴩᴀᴜsᴇ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ᴩʟᴀʏɪɴɢ sᴛʀᴇᴀᴍ.
 
@@ -517,11 +518,66 @@ def Music_about_callback(update: Update, context: CallbackContext):
 /channelplay [ᴄʜᴀᴛ ᴜꜱᴇʀɴᴀᴍᴇ ᴏʀ ɪᴅ] ᴏʀ [ᴅɪꜱᴀʙʟᴇ] - ᴄᴏɴɴᴇᴄᴛ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴀ ɢʀᴏᴜᴘ ᴀɴᴅ ꜱᴛʀᴇᴀᴍ ᴍᴜꜱɪᴄ ᴏɴ ᴄʜᴀɴɴᴇʟ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ғʀᴏᴍ ʏᴏᴜʀ ɢʀᴏᴜᴘ.
 
 
-ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅꜱ
-✅ʙᴏᴛ'ꜱ  ꜱᴇʀᴠᴇʀ ᴘʟᴀʏʟɪꜱᴛꜱ:
+*ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅꜱ*
+🍹 ʙᴏᴛ'ꜱ  ꜱᴇʀᴠᴇʀ ᴘʟᴀʏʟɪꜱᴛꜱ:
 /playlist  - ᴄʜᴇᴄᴋ ʏᴏᴜʀ ꜱᴀᴠᴇᴅ ᴘʟᴀʏʟɪꜱᴛ ᴏɴ ꜱᴇʀᴠᴇʀꜱ.
 /deleteplaylist - ᴅᴇʟᴇᴛᴇ ᴀɴʏ ꜱᴀᴠᴇᴅ ᴍᴜꜱɪᴄ ɪɴ ʏᴏᴜʀ ᴘʟᴀʏʟɪꜱᴛ
 /play  - ꜱᴛᴀʀᴛ ᴘʟᴀʏɪɴɢ ʏᴏᴜʀ ꜱᴀᴠᴇᴅ ᴘʟᴀʏʟɪꜱᴛ ғʀᴏᴍ ꜱᴇʀᴠᴇʀꜱ.
+""",
+            
+            
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="• ʙᴀᴄᴋ •", callback_data="Music_"),
+                 
+                 ]
+                ]
+            ),
+        )
+    elif query.data == "Music_bot":
+        query.message.edit_text(
+            text=f"*» ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅꜱ «*"
+            f"""
+/stats - ɢᴇᴛ ᴛᴏᴘ 10 ᴛʀᴀᴄᴋꜱ ɢʟᴏʙᴀʟ ꜱᴛᴀᴛꜱ, ᴛᴏᴘ 10 ᴜꜱᴇʀꜱ ᴏғ ʙᴏᴛ, ᴛᴏᴘ 10 ᴄʜᴀᴛꜱ ᴏɴ ʙᴏᴛ, ᴛᴏᴘ 10 ᴘʟᴀʏᴇᴅ ɪɴ ᴀ ᴄʜᴀᴛ ᴇᴛᴄ ᴇᴛᴄ.
+
+/sudolist - ᴄʜᴇᴄᴋ sᴜᴅᴏ ᴜsᴇʀs ᴏғ ᴀʙɢ  ʙᴏᴛ
+
+/lyrics [ᴍᴜsɪᴄ ɴᴀᴍᴇ] - sᴇᴀʀᴄʜᴇs ʟʏʀɪᴄs ғᴏʀ ᴛʜᴇ ᴘᴀʀᴛɪᴄᴜʟᴀʀ ᴍᴜsɪᴄ ᴏɴ ᴡᴇʙ.
+
+/song [ᴛʀᴀᴄᴋ ɴᴀᴍᴇ] or [ʏᴛ ʟɪɴᴋ] - ᴅᴏᴡɴʟᴏᴀᴅ ᴀɴʏ ᴛʀᴀᴄᴋ ғʀᴏᴍ ʏᴏᴜᴛᴜʙᴇ ɪɴ ᴍᴘ3 or ᴍᴘ4 ғᴏʀᴍᴀᴛꜱ.
+
+/player -  ɢᴇt ᴀ ɪɴᴛᴇʀᴀᴄᴛɪᴠᴇ ᴘʟᴀʏɪɴɢ ᴘᴀɴᴇʟ.
+
+c ꜱᴛᴀɴᴅꜱ ꜰᴏʀ ᴄʜᴀɴɴᴇʟ ᴘʟᴀʏ.
+
+/queue ᴏʀ /cqueue- ᴄʜᴇᴄᴋ Qᴜᴇᴜᴇ ʟɪꜱᴛ ᴏꜰ ᴍᴜꜱɪᴄ.
+""",
+            
+            
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="• ʙᴀᴄᴋ •", callback_data="Music_"),
+                 
+                 ]
+                ]
+            ),
+        )
+    elif query.data == "Music_extra":
+        query.message.edit_text(
+            text=f"*» ᴇxᴛʀᴀ ᴄᴏᴍᴍᴀɴᴅꜱ «*"
+            f"""
+/start - ꜱᴛᴀʀᴛ ᴛʜᴇ ᴍᴜꜱɪᴄ ʙᴏᴛ.
+/help  - ɢᴇᴛ ᴄᴏᴍᴍᴀɴᴅꜱ ʜᴇʟᴘᴇʀ ᴍᴇɴᴜ ᴡɪᴛʜ ᴅᴇᴛᴀɪʟᴇᴅ ᴇxᴘʟᴀɴᴀᴛɪᴏɴꜱ ᴏғ ᴄᴏᴍᴍᴀɴᴅꜱ.
+/ping- ᴘɪɴɢ ᴛʜᴇ ʙᴏᴛ ᴀɴᴅ ᴄʜᴇᴄᴋ ʀᴀᴍ, ᴄᴘᴜ ᴇᴛᴄ ꜱᴛᴀᴛꜱ ᴏғ ʙᴏᴛ.
+
+*🍻 ɢʀᴏᴜᴘ ꜱᴇᴛᴛɪɴɢꜱ:*
+/settings - ɢᴇᴛ a ᴄᴏᴍᴘʟᴇᴛᴇ ɢʀᴏᴜᴘ'ꜱ ꜱᴇᴛᴛɪɴɢꜱ ᴡɪᴛʜ ɪɴʟɪɴᴇ ʙᴜᴛᴛᴏɴꜱ
 """,
             
             
