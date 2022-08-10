@@ -481,10 +481,10 @@ def Music_about_callback(update: Update, context: CallbackContext):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="◁", callback_data="noi_basic")]]
+                [[InlineKeyboardButton(text="◁", callback_data="Music_basic")]]
             ),
         )
-    elif query.data == "noi_basic":
+    elif query.data == "Music_basic":
         query.message.edit_text(
             text=f"**──𝗡𝗢𝗜𝗡𝗢𝗜 𝗕𝗔𝗦𝗜𝗖 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦 📚──**"
             f"\n\n❍ Hey this feature has many commands, & this feature is knnown as basic command.\n❍ this feature is also help you to manage your group \n\n 🌸 𝗣𝗢𝗪𝗘𝗥𝗗 𝗕𝗬 𝗡𝗢𝗜𝗡𝗢𝗜 𝗠𝗨𝗦𝗜𝗖 𝗣𝗟𝗔𝗬𝗘𝗥",
