@@ -110,7 +110,7 @@ async def job_close():
         try:
             await tbot.send_message(
                 int(warner.chat_id),
-                "12:00 Am, Group Is Closing Till 6 Am. Night Mode Started ! \n**Powered By Fallen Robot**",
+                "12:00 ᴀᴍ, ɢʀᴏᴜᴘ ɪꜱ ᴄʟᴏꜱɪɴɢ ᴛɪʟʟ 6 ᴀᴍ. ɴɪɢʜᴛ ᴍᴏᴅᴇ ꜱᴛᴀʀᴛᴇᴅ ! \n**ᴘᴏᴡᴇʀᴇᴅ ʙʏ ʟᴜᴄᴋʏ ʀᴏʙᴏᴛ**",
             )
             await tbot(
                 functions.messages.EditChatDefaultBannedRightsRequest(
@@ -135,7 +135,7 @@ async def job_open():
         try:
             await tbot.send_message(
                 int(warner.chat_id),
-                "06:00 Am, Group Is Opening.\n**Powered By Fallen Robot**",
+                "06:00 ᴀᴍ, ɢʀᴏᴜᴘ ɪꜱ ᴏᴘᴇɴɪɴɢ.\n**ᴘᴏᴡᴇʀᴇᴅ ʙʏ ʟᴜᴄᴋʏ ʀᴏʙᴏᴛ.**",
             )
             await tbot(
                 functions.messages.EditChatDefaultBannedRightsRequest(
