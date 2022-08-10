@@ -469,34 +469,38 @@ def Music_about_callback(update: Update, context: CallbackContext):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                    InlineKeyboardButton(text="◁", callback_data="Music_back"),
-                    InlineKeyboardButton(text="music", callback_data="Music_basic"),
+                    InlineKeyboardButton(text="🍹 ᴀᴅᴍɪɴ 🍹", callback_data="Music_back"),
+                    InlineKeyboardButton(text="🍬 ᴘʟᴀʏ 🍬", callback_data="Music_basic"),
                  ]
                 ]
             ),
         )
     elif query.data == "Music_basic":
         query.message.edit_text(
-            text=f"**──𝗡𝗢𝗜𝗡𝗢𝗜 𝗕𝗔𝗦𝗜𝗖 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦 📚──**"
-            f"\n\n❍ Hey this feature has many commands, & this feature is knnown as basic command.\n❍ this feature is also help you to manage your group \n\n 🌸 𝗣𝗢𝗪𝗘𝗥𝗗 𝗕𝗬 𝗡𝗢𝗜𝗡𝗢𝗜 𝗠𝗨𝗦𝗜𝗖 𝗣𝗟𝗔𝗬𝗘𝗥",
+            text=f"**» ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅꜱ «**"
+            f"""
+ᴊᴜsᴛ ᴀᴅᴅ **ᴄ** ɪɴ ᴛʜᴇ sᴛᴀʀᴛɪɴɢ ᴏғ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅs ᴛᴏ ᴜsᴇ ᴛʜᴇᴍ ғᴏʀ ᴄʜᴀɴɴᴇʟ.
+
+/pause : ᴩᴀᴜsᴇ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ᴩʟᴀʏɪɴɢ sᴛʀᴇᴀᴍ.
+
+/resume : ʀᴇsᴜᴍᴇ ᴛʜᴇ ᴩᴀᴜsᴇᴅ sᴛʀᴇᴀᴍ.
+
+/skip : sᴋɪᴩ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ᴩʟᴀʏɪɴɢ sᴛʀᴇᴀᴍ ᴀɴᴅ sᴛᴀʀᴛ sᴛʀᴇᴀᴍɪɴɢ ᴛʜᴇ ɴᴇxᴛ ᴛʀᴀᴄᴋ ɪɴ ǫᴜᴇᴜᴇ.
+
+/end ᴏʀ /stop : ᴄʟᴇᴀʀs ᴛʜᴇ ǫᴜᴇᴜᴇ ᴀɴᴅ ᴇɴᴅ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ᴩʟᴀʏɪɴɢ sᴛʀᴇᴀᴍ.
+
+/player : ɢᴇᴛ ᴀ ɪɴᴛᴇʀᴀᴄᴛɪᴠᴇ ᴩʟᴀʏᴇʀ ᴩᴀɴᴇʟ.
+
+/queue : sʜᴏᴡs ᴛʜᴇ ǫᴜᴇᴜᴇᴅ ᴛʀᴀᴄᴋs ʟɪsᴛ.
+""",
             
             
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
-                    [
-                    InlineKeyboardButton("Group", callback_data="noi_group"),
-                    InlineKeyboardButton("Locks", callback_data="noi_lock"),
-                    InlineKeyboardButton("Rules", callback_data="noi_rule"),
-                    ],
-                    [
-                    InlineKeyboardButton("Welcome", callback_data="noi_welcome"),
-                    InlineKeyboardButton("Filter", callback_data="noi_filter"),
-                    InlineKeyboardButton("Disable", callback_data="noi_disable"),
-                    ],
-                [
-                    InlineKeyboardButton(text="↪ Back", callback_data="noi_"),
+                 [
+                    InlineKeyboardButton(text="• ʙᴀᴄᴋ •", callback_data="Music_back"),
                  
                  ]
                 ]
