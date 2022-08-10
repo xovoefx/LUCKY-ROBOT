@@ -481,7 +481,12 @@ def Music_about_callback(update: Update, context: CallbackContext):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="◁", callback_data="Music_basic")]]
+                [
+                    [
+                    InlineKeyboardButton(text="◁", callback_data="Music_back"),
+                    InlineKeyboardButton(text="music", callback_data="Music_basic"),
+                 ]
+                ]
             ),
         )
     elif query.data == "Music_basic":
