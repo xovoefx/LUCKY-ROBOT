@@ -1,12 +1,11 @@
 future
-emoji
 lxml
 wget
 beautifulsoup4
 requests
 python-telegram-bot==12.8
 youtube_search_python
-sqlalchemy==1.4.39
+sqlalchemy==1.4.40
 PyDictionary
 psycopg2-binary
 feedparser
@@ -21,10 +20,11 @@ aiohttp>=2.2.5
 Pillow
 CurrencyConverter
 jikanpy
+emoji==1.7.0
 speedtest-cli
 regex
 bleach
-git+https://github.com/starry69/python-markdown2.git
+git+https://github.com/trentm/python-markdown2.git
 wikipedia
 telethon
 telegraph
@@ -35,7 +35,7 @@ cachetools
 ujson
 pretty_errors
 TgCrypto
-Pyrogram==2.0.33
+Pyrogram
 youtube_search
 asyncio
 dateparser
