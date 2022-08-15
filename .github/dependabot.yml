@@ -13,4 +13,4 @@ updates:
     - dependency-name: "python-telegram-bot"
     # Ignoring all ptb updates
     - dependency-name: "aiohttp"
-    # Ignoring all aiohttp updates
+    #  Ignoring all aiohttp updates
