@@ -474,9 +474,7 @@ def Music_about_callback(update: Update, context: CallbackContext):
                         ),
                     ],
                     [
-                        InlineKeyboardButton(
-                            text="🍸 ʙᴏᴛ 🍸", callback_data="Music_bot"
-                        ),
+                        InlineKeyboardButton(text="🍸 ʙᴏᴛ 🍸", callback_data="Music_bot"),
                         InlineKeyboardButton(
                             text="🍷 ᴇxᴛʀᴀ 🍷",
                             callback_data="Music_extra",
@@ -506,16 +504,13 @@ def Music_about_callback(update: Update, context: CallbackContext):
 
 /queue : sʜᴏᴡs ᴛʜᴇ ǫᴜᴇᴜᴇᴅ ᴛʀᴀᴄᴋs ʟɪsᴛ.
 """,
-            
-            
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
-                 [
-                    InlineKeyboardButton(text="• ʙᴀᴄᴋ •", callback_data="Music_"),
-                 
-                 ]
+                    [
+                        InlineKeyboardButton(text="• ʙᴀᴄᴋ •", callback_data="Music_"),
+                    ]
                 ]
             ),
         )
@@ -536,16 +531,13 @@ def Music_about_callback(update: Update, context: CallbackContext):
 /deleteplaylist - ᴅᴇʟᴇᴛᴇ ᴀɴʏ ꜱᴀᴠᴇᴅ ᴍᴜꜱɪᴄ ɪɴ ʏᴏᴜʀ ᴘʟᴀʏʟɪꜱᴛ
 /play  - ꜱᴛᴀʀᴛ ᴘʟᴀʏɪɴɢ ʏᴏᴜʀ ꜱᴀᴠᴇᴅ ᴘʟᴀʏʟɪꜱᴛ ғʀᴏᴍ ꜱᴇʀᴠᴇʀꜱ.
 """,
-            
-            
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
-                 [
-                    InlineKeyboardButton(text="• ʙᴀᴄᴋ •", callback_data="Music_"),
-                 
-                 ]
+                    [
+                        InlineKeyboardButton(text="• ʙᴀᴄᴋ •", callback_data="Music_"),
+                    ]
                 ]
             ),
         )
@@ -567,16 +559,13 @@ c ꜱᴛᴀɴᴅꜱ ꜰᴏʀ ᴄʜᴀɴɴᴇʟ ᴘʟᴀʏ.
 
 /queue ᴏʀ /cqueue- ᴄʜᴇᴄᴋ Qᴜᴇᴜᴇ ʟɪꜱᴛ ᴏꜰ ᴍᴜꜱɪᴄ.
 """,
-            
-            
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
-                 [
-                    InlineKeyboardButton(text="• ʙᴀᴄᴋ •", callback_data="Music_"),
-                 
-                 ]
+                    [
+                        InlineKeyboardButton(text="• ʙᴀᴄᴋ •", callback_data="Music_"),
+                    ]
                 ]
             ),
         )
@@ -591,16 +580,13 @@ c ꜱᴛᴀɴᴅꜱ ꜰᴏʀ ᴄʜᴀɴɴᴇʟ ᴘʟᴀʏ.
 *🍻 ɢʀᴏᴜᴘ ꜱᴇᴛᴛɪɴɢꜱ:*
 /settings - ɢᴇᴛ a ᴄᴏᴍᴘʟᴇᴛᴇ ɢʀᴏᴜᴘ'ꜱ ꜱᴇᴛᴛɪɴɢꜱ ᴡɪᴛʜ ɪɴʟɪɴᴇ ʙᴜᴛᴛᴏɴꜱ
 """,
-            
-            
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
-                 [
-                    InlineKeyboardButton(text="• ʙᴀᴄᴋ •", callback_data="Music_"),
-                 
-                 ]
+                    [
+                        InlineKeyboardButton(text="• ʙᴀᴄᴋ •", callback_data="Music_"),
+                    ]
                 ]
             ),
         )
