@@ -28,24 +28,22 @@ async def lastname(steal):
                 r = await conv.get_response()
                 response = await conv.get_response()
             except YouBlockedUserError:
-                await steal.reply(
-                    "```Error, report to @DeCodeSupport```"
-                )
+                await steal.reply("```Error, report to @DeCodeSupport```")
                 return
             if r.text.startswith("Name"):
                 respond = await conv.get_response()
                 await puki.edit(f"`{r.message}`")
                 await tbot.delete_messages(
                     conv.chat_id, [msg.id, r.id, response.id, respond.id]
-                ) 
+                )
                 return
             if response.text.startswith("No records") or r.text.startswith(
                 "No records"
             ):
-                await puki.edit("```I Can't Find This User's Information, This User Has Never Changed His Name Before.```")
-                await tbot.delete_messages(
-                    conv.chat_id, [msg.id, r.id, response.id]
+                await puki.edit(
+                    "```I Can't Find This User's Information, This User Has Never Changed His Name Before.```"
                 )
+                await tbot.delete_messages(conv.chat_id, [msg.id, r.id, response.id])
                 return
             else:
                 respond = await conv.get_response()
