@@ -32,7 +32,7 @@ async def repo(client, message):
                     ),
                     InlineKeyboardButton(
                         "• sᴏᴜʀᴄᴇ •",
-                        url="https://github.com/mrluckyxd/Lucky-Robot",
+                        url="https://t.me/musicxsupportmm",
                     ),
                 ]
             ]
